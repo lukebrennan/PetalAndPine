@@ -1,0 +1,24 @@
+---
+interface Props {
+  kind?: 'arrow' | 'flower';
+  class?: string;
+}
+const { kind = 'arrow', class: className = '' } = Astro.props;
+---
+<svg class:list={['icon', `icon-${kind}`, className]} viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  {kind === 'arrow' ? (
+    <path d="M5 19 19 5M6 5h13v13" fill="none" stroke="currentColor" stroke-width="1.5" />
+  ) : (
+    <g fill="currentColor">
+      <ellipse cx="12" cy="6" rx="1.6" ry="5" />
+      <ellipse cx="12" cy="6" rx="1.6" ry="5" transform="rotate(45 12 12)" />
+      <ellipse cx="12" cy="6" rx="1.6" ry="5" transform="rotate(90 12 12)" />
+      <ellipse cx="12" cy="6" rx="1.6" ry="5" transform="rotate(135 12 12)" />
+      <ellipse cx="12" cy="6" rx="1.6" ry="5" transform="rotate(180 12 12)" />
+      <ellipse cx="12" cy="6" rx="1.6" ry="5" transform="rotate(225 12 12)" />
+      <ellipse cx="12" cy="6" rx="1.6" ry="5" transform="rotate(270 12 12)" />
+      <ellipse cx="12" cy="6" rx="1.6" ry="5" transform="rotate(315 12 12)" />
+      <circle cx="12" cy="12" r="2.5" />
+    </g>
+  )}
+</svg>
