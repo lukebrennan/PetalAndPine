@@ -2,106 +2,44 @@
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
+import CollectionCard from '../components/CollectionCard.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import FAQ from '../components/FAQ.astro';
 import bouquet from '../assets/bouquet.png';
-import { site, collections } from '../data/site';
-
-const root = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
-const hasContact = Boolean(site.contact.email || site.contact.phone || site.contact.address || site.contact.instagram);
+import studio from '../assets/studio.png';
+import care from '../assets/care.png';
+import { site, collections, occasions, flowerFAQs } from '../data/site';
+import { path } from '../lib/paths';
 ---
-
 <Layout>
-  <div class="announcement">A little more beauty in the everyday <Icon kind="flower" /></div>
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero-copy"><p class="eyebrow"><span class="little-line" aria-hidden="true"></span>{site.eyebrow}</p><h1 id="hero-title">{site.headline.firstLine}<br />{site.headline.secondLine} <em>{site.headline.emphasis}</em></h1><p class="hero-description">{site.introduction}</p><div class="hero-actions"><a class="button" href={path('flowers')}>Find your flowers <Icon /></a><a class="text-link" href={path('occasions')}>Find a little inspiration</a></div><p class="hero-note">A thoughtful gesture. A beautiful feeling.</p></div>
+    <div class="hero-art"><div class="photo-frame"><Image src={bouquet} alt="Blush, cream, and peach flowers gathered with fresh eucalyptus in ivory wrapping." widths={[640, 960, 1440]} sizes="(max-width: 760px) 92vw, 52vw" format="webp" quality={82} loading="eager" fetchpriority="high" /></div><div class="flower-seal" aria-hidden="true"><span>ROOTED IN</span><Icon kind="flower" class="seal-flower" /><span>A LITTLE LOVE</span></div><p class="photo-caption">soft petals. wild hearts.</p></div>
+  </section>
+  <div class="values-strip"><span>Garden-inspired beauty</span><Icon kind="flower" /><span>Thoughtful little gestures</span><Icon kind="flower" /><span>A little everyday joy</span></div>
 
-  <header class="site-header wrap">
-    <a class="wordmark" href={root} aria-label="Petal and Pine home">
-      <svg class="brand-sprig" viewBox="0 0 48 56" aria-hidden="true">
-        <path d="M25 52V22M25 39C12 39 8 30 8 24c10 0 17 6 17 15Zm0-8c11 0 16-8 16-15-9 0-16 6-16 15Z" fill="none" stroke="currentColor" stroke-width="1.4" />
-        <path d="M25 22c-7-4-11-8-11-13 5-1 9 1 11 5 2-4 6-6 11-5 0 5-4 9-11 13Z" fill="currentColor" />
-      </svg>
-      <span>petal <i>&</i> pine<small>flowers with feeling</small></span>
-    </a>
-    <nav aria-label="Main navigation">
-      <a href="#flowers">Our flowers</a>
-      <a href="#our-story">Our story</a>
-      <a class="nav-contact" href="#contact">Say hello <Icon /></a>
-    </nav>
-  </header>
+  <section id="flowers" class="wrap section-space">
+    <div class="section-heading"><div><p class="eyebrow">Find your kind of lovely</p><h2>A mood for every <em>moment.</em></h2></div><a class="text-link" href={path('flowers')}>Explore our flowers <Icon /></a></div>
+    <div class="collection-grid">{collections.map((collection, index) => <CollectionCard collection={collection} index={index} />)}</div>
+    <p class="section-note">Bouquet inspiration and example prices. Individual stems and colours change with the season.</p>
+  </section>
 
-  <main id="main">
-    <section class="hero wrap" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="little-line" aria-hidden="true"></span>{site.eyebrow}</p>
-        <h1 id="hero-title">{site.headline.firstLine}<br />{site.headline.secondLine} <em>{site.headline.emphasis}</em></h1>
-        <p class="hero-description">{site.introduction}</p>
-        <a class="button" href="#flowers">Explore our flowers <Icon /></a>
-        <p class="hero-note">A thoughtful gesture. A beautiful feeling.</p>
-      </div>
-      <div class="hero-art">
-        <div class="photo-frame">
-          <Image src={bouquet} alt="A garden-inspired bouquet of blush, cream, and peach flowers with fresh eucalyptus, wrapped in ivory paper." widths={[640, 960, 1440]} sizes="(max-width: 760px) 92vw, 52vw" format="webp" quality={82} loading="eager" fetchpriority="high" />
-        </div>
-        <div class="flower-seal" aria-hidden="true"><span>ROOTED IN</span><Icon kind="flower" class="seal-flower" /><span>A LITTLE LOVE</span></div>
-        <p class="photo-caption">soft petals. wild hearts.</p>
-      </div>
-    </section>
-
-    <div class="values-strip" aria-label="Our inspiration">
-      <span>Garden-inspired beauty</span><Icon kind="flower" />
-      <span>Thoughtful little gestures</span><Icon kind="flower" />
-      <span>Flowers with feeling</span>
+  <section class="occasions-band">
+    <div class="wrap section-space"><div class="section-heading"><div><p class="eyebrow">Say it with flowers</p><h2>The little things.<br /><em>The big feelings.</em></h2></div><p>Not every gesture needs a grand occasion.<br />Sometimes “I’m thinking of you” is enough.</p></div>
+      <div class="occasion-grid">{occasions.slice(0, 4).map((occasion, index) => <a class="occasion-tile" href={`${path('occasions')}#${occasion.value}`}><span class="tile-number">0{index + 1}</span><h3>{occasion.title}</h3><p>{occasion.description}</p><span class="tile-link">A little inspiration <Icon /></span></a>)}</div>
     </div>
+  </section>
 
-    <section id="flowers" class="flowers-section wrap section-space" aria-labelledby="flowers-title">
-      <div class="section-heading">
-        <div><p class="eyebrow">Find your kind of lovely</p><h2 id="flowers-title">A mood for every <em>moment.</em></h2></div>
-        <p>Some days call for soft and subtle.<br />Others, a little burst of joy.<br />Let the flowers do the talking.</p>
-      </div>
-      <div class="collection-grid">
-        {collections.map((collection, index) => (
-          <article class={`collection-card ${collection.palette}`}>
-            <div class="collection-art" aria-hidden="true">
-              <span class="collection-number">0{index + 1}</span>
-              <svg viewBox="0 0 180 190" class="collection-flower">
-                <path d="M90 184V92M90 152c-33 0-48-23-48-42 30 0 48 18 48 42Zm0-20c32 0 47-25 47-41-30 0-47 19-47 41Z" class="stem" />
-                <g class="petals">
-                  <ellipse cx="90" cy="52" rx="21" ry="33" />
-                  <ellipse cx="90" cy="52" rx="21" ry="33" transform="rotate(60 90 71)" />
-                  <ellipse cx="90" cy="52" rx="21" ry="33" transform="rotate(120 90 71)" />
-                  <ellipse cx="90" cy="52" rx="21" ry="33" transform="rotate(180 90 71)" />
-                  <ellipse cx="90" cy="52" rx="21" ry="33" transform="rotate(240 90 71)" />
-                  <ellipse cx="90" cy="52" rx="21" ry="33" transform="rotate(300 90 71)" />
-                </g>
-                <circle cx="90" cy="71" r="13" class="flower-center" />
-              </svg>
-              <span class="collection-detail">A Petal & Pine inspiration</span>
-            </div>
-            <div class="collection-copy"><h3>{collection.name}</h3><p>{collection.description}</p></div>
-          </article>
-        ))}
-      </div>
-    </section>
+  <section id="our-story" class="story-section"><div class="wrap story-inner">
+    <div class="editorial-photo arch"><Image src={studio} alt="An illustrative florist worktable with flowers, ribbon, wrapping paper, and shears in warm daylight." widths={[640, 960]} sizes="(max-width: 760px) 92vw, 45vw" format="webp" quality={80} loading="lazy" /></div>
+    <div class="story-copy"><p class="eyebrow">The heart of Petal & Pine</p><h2>More than flowers.<br /><em>A little connection.</em></h2><p>{site.story}</p><p>Our Chester-inspired shop is a place to imagine slower moments, thoughtful gestures, and flowers that feel like someone you know.</p><a class="text-link" href={path('our-story')}>Get to know Petal & Pine <Icon /></a></div>
+  </div></section>
 
-    <section id="our-story" class="story-section" aria-labelledby="story-title">
-      <div class="wrap story-inner">
-        <div class="story-mark" aria-hidden="true"><span>petal</span><i>&</i><span>pine</span><small>A little wild. Always thoughtful.</small></div>
-        <div class="story-copy"><p class="eyebrow">The heart of Petal & Pine</p><h2 id="story-title">More than flowers.<br /><em>A little connection.</em></h2><p>{site.story}</p><a class="text-link" href="#contact">Let’s make something lovely <Icon /></a></div>
-      </div>
-    </section>
+  <section class="wrap section-space split-section care-teaser">
+    <div><p class="eyebrow">Keep the lovely a little longer</p><h2>A few small habits.<br /><em>A happier vase.</em></h2><p class="body-copy">Fresh water, a clean vase, and a cool spot make a beautiful place to start. Our practical care guide helps you enjoy every stem.</p><ol class="mini-steps"><li><span>01</span>Trim the stems with clean shears.</li><li><span>02</span>Keep leaves above the waterline.</li><li><span>03</span>Refresh the water and find a cool spot.</li></ol><a class="text-link" href={path('flower-care')}>Read the flower-care guide <Icon /></a></div>
+    <div class="editorial-photo"><Image src={care} alt="Pink and cream flowers in a glass vase beside floral shears and linen." widths={[640, 960]} sizes="(max-width: 760px) 92vw, 45vw" format="webp" quality={80} loading="lazy" /></div>
+  </section>
 
-    <section id="contact" class="contact-section wrap section-space" aria-labelledby="contact-title">
-      <Icon kind="flower" class="contact-star" />
-      <p class="eyebrow">A note from Petal & Pine</p>
-      <h2 id="contact-title">Good things are <em>growing.</em></h2>
-      {hasContact ? (
-        <div class="contact-details">
-          {site.contact.email && <a class="button" href={`mailto:${site.contact.email}`}>Say hello <Icon /></a>}
-          {site.contact.phone && <a href={`tel:${site.contact.phone.replace(/[^+\d]/g, '')}`}>{site.contact.phone}</a>}
-          {site.contact.address && <p>{site.contact.address}</p>}
-          {site.contact.instagram && <a href={site.contact.instagram} target="_blank" rel="noopener noreferrer">Find us on Instagram <Icon /></a>}
-        </div>
-      ) : <p class="contact-message">Our flower shop is taking shape.<br />Bouquet availability and ways to get in touch will be shared here soon.</p>}
-    </section>
-  </main>
-
-  <footer class="site-footer"><div class="wrap footer-inner"><a class="footer-brand" href={root}>petal <i>&</i> pine</a><p>Flowers with feeling. Beauty in the everyday.</p><small>© {new Date().getFullYear()} {site.name}</small></div></footer>
+  <section class="faq-section wrap section-space"><div><p class="eyebrow">A few little answers</p><h2>Good things<br /><em>to know.</em></h2><p class="body-copy">Choosing flowers should feel lovely, not complicated. Start with a colour, a feeling, or someone special.</p></div><FAQ items={flowerFAQs.slice(0, 3)} /></section>
+  <div id="contact"><ContactCTA /></div>
 </Layout>

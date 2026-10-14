@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import FlowerBrief from '../components/FlowerBrief.astro';
+import FAQ from '../components/FAQ.astro';
+import { shop, contactFAQs } from '../data/site';
+---
+<Layout title="Say hello — Petal & Pine Chester shop preview" description="Explore our fictional Chester shop details, example opening hours, and a helpful flower-brief builder. This preview does not take orders or payments.">
+  <section class="wrap page-intro"><p class="eyebrow">A little chat. A lovely idea.</p><h1>Let’s make something<br /><em>thoughtful.</em></h1><p class="page-lead">Tell us about the person, the moment, or simply the feeling you have in mind. A few little details are the start of something lovely.</p></section>
+  <div class="wrap demo-notice"><Icon kind="flower" /><p><strong>A Chester shop preview.</strong> The address, contact details, hours, delivery information, and prices below are fictional examples. Use the brief builder to explore your ideas; nothing is sent or booked.</p></div>
+  <section class="wrap contact-grid section-space" aria-label="Example shop information">
+    <article class="contact-card"><p class="eyebrow">Find our little shop</p><h2>Chester,<br /><em>with a little charm.</em></h2><address>{shop.address.map((line) => <span class="address-line">{line}</span>)}</address><p class="small-note">Illustrative address — not a real shop location.</p><div class="location-illustration" aria-hidden="true"><span class="map-line one"></span><span class="map-line two"></span><span class="map-line three"></span><span class="map-dot"><Icon kind="flower" /></span><strong>Chester</strong><small>Our shop inspiration</small></div></article>
+    <article class="contact-card"><p class="eyebrow">A little hello</p><h2>Good things begin<br /><em>with a message.</em></h2><div class="contact-row"><span>Example email</span><strong>{shop.email}</strong></div><div class="contact-row"><span>Example phone</span><strong>{shop.phone}</strong></div><p class="small-note">These demonstration details are not active enquiry channels. They are shown without call or email links.</p><a class="text-link" href="#flower-brief">Prepare your flower brief <Icon /></a></article>
+    <article class="contact-card"><p class="eyebrow">A little planning</p><h2>Pop by.<br /><em>Take your time.</em></h2><dl class="hours-list">{shop.hours.map((hours) => <div><dt>{hours.days}</dt><dd>{hours.time}</dd></div>)}</dl><p class="small-note">Example opening hours, in UK local time.</p><div class="delivery-note"><h3>Collection & local delivery</h3><p>{shop.delivery}</p><small>Illustrative service information; availability is not confirmed.</small></div></article>
+  </section>
+  <section id="flower-brief" class="soft-band"><div class="wrap section-space"><div class="section-heading"><div><p class="eyebrow">Your idea, in a few little words</p><h2>Build a <em>flower brief.</em></h2></div><p>Choose a mood, add a date, and tell us a little<br />about the gesture. Copy the message when it feels right.</p></div><FlowerBrief /></div></section>
+  <section class="wrap section-space faq-section"><div><p class="eyebrow">Before you say hello</p><h2>A few useful<br /><em>little answers.</em></h2></div><FAQ items={contactFAQs} /></section>
+</Layout>

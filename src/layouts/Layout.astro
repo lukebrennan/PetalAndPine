@@ -6,15 +6,24 @@ import '@fontsource/dm-sans/latin-400.css';
 import '@fontsource/dm-sans/latin-500.css';
 import '../styles/global.css';
 import { site } from '../data/site';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import heroImage from '../assets/bouquet.png';
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { base } from '../lib/paths';
 
 interface Props {
   title?: string;
   description?: string;
+  image?: ImageMetadata;
+  noindex?: boolean;
 }
 
-const { title = `${site.name} — Flowers with feeling`, description = site.description } = Astro.props;
-const root = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const { title = `${site.name} — Flowers with feeling`, description = site.description, image = heroImage, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const socialImage = await getImage({ src: image, width: 1200, height: 630, format: 'jpg', quality: 80 });
+const schema = { '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: new URL(base, Astro.site).href, description: site.description };
 ---
 
 <!doctype html>
@@ -24,16 +33,25 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#234337" />
-    <link rel="icon" type="image/svg+xml" href={`${root}favicon.svg`} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="sitemap" type="application/xml" href={`${base}sitemap.xml`} />
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(socialImage.src, Astro.site).href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     <title>{title}</title>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <slot />
+    <Header />
+    <main id="main" tabindex="-1"><slot /></main>
+    <Footer />
   </body>
 </html>

@@ -1,0 +1,19 @@
+---
+import Icon from './Icon.astro';
+interface Props { text: string }
+const { text } = Astro.props;
+---
+<div class="copy-message"><button type="button" class="text-link" data-copy-message={text}>Copy this message <Icon /></button><span class="copy-status" role="status" aria-live="polite"></span></div>
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy-message]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const status = button.parentElement?.querySelector<HTMLElement>('.copy-status');
+      try {
+        await navigator.clipboard.writeText(button.dataset.copyMessage ?? '');
+        if (status) status.textContent = 'Message copied.';
+      } catch {
+        if (status) status.textContent = 'Please select and copy the message above.';
+      }
+    });
+  });
+</script>

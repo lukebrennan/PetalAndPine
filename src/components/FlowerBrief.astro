@@ -1,0 +1,70 @@
+---
+import Icon from './Icon.astro';
+import { collections, occasions, sizes } from '../data/site';
+---
+<div class="brief-builder">
+  <form id="brief-form" class="brief-form" aria-label="Create a flower brief">
+    <div class="form-field"><label for="brief-name">Your name <span>(optional)</span></label><input id="brief-name" name="name" type="text" autocomplete="given-name" maxlength="100" placeholder="What should we call you?" /></div>
+    <div class="form-field"><label for="brief-occasion">The occasion</label><select id="brief-occasion" name="occasion"><option value="">A little everyday beauty</option>{occasions.map((occasion) => <option value={occasion.value}>{occasion.label}</option>)}<option value="other">Something else</option></select></div>
+    <div class="form-field"><label for="brief-palette">Your palette</label><select id="brief-palette" name="palette"><option value="">Help me choose</option>{collections.map((collection) => <option value={collection.slug}>{collection.name}</option>)}</select></div>
+    <div class="form-field"><label for="brief-size">The size of the gesture</label><select id="brief-size" name="size"><option value="">Not sure yet</option>{sizes.map((size) => <option value={size.value}>{size.label}</option>)}</select></div>
+    <div class="form-field"><label for="brief-date">Preferred date <span>(optional)</span></label><input id="brief-date" name="date" type="date" /></div>
+    <div class="form-field"><label for="brief-budget">Approximate budget <span>(optional)</span></label><input id="brief-budget" name="budget" type="text" maxlength="80" placeholder="For example, around £45" /></div>
+    <div class="form-field form-wide"><label for="brief-notes">A few little details <span>(optional)</span></label><textarea id="brief-notes" name="notes" rows="4" maxlength="1200" placeholder="Favourite colours, who the flowers are for, a card message, or collection/delivery preferences…"></textarea></div>
+    <div class="form-wide brief-form-note"><p>Your answers create a message you can copy. This preview does not send an enquiry or place an order.</p><button type="reset" class="text-link">Start again</button></div>
+  </form>
+  <div class="brief-preview"><p class="eyebrow">Your little flower brief</p><label class="visually-hidden" for="brief-output">Your flower brief message</label><textarea id="brief-output" rows="15" readonly></textarea><button id="copy-brief" type="button" class="button">Copy your flower brief <Icon /></button><p id="brief-status" role="status" aria-live="polite"></p><noscript><p>Enable JavaScript to build and copy your brief, or use the questions beside this box to write your own message.</p></noscript></div>
+</div>
+<script>
+  const form = document.querySelector<HTMLFormElement>('#brief-form');
+  const output = document.querySelector<HTMLTextAreaElement>('#brief-output');
+  const button = document.querySelector<HTMLButtonElement>('#copy-brief');
+  const status = document.querySelector<HTMLElement>('#brief-status');
+  if (form && output && button) {
+    const query = new URLSearchParams(window.location.search);
+    ['palette', 'size', 'occasion'].forEach((field) => {
+      const select = form.elements.namedItem(field);
+      const requested = query.get(field);
+      if (select instanceof HTMLSelectElement && requested && [...select.options].some((option) => option.value === requested)) select.value = requested;
+    });
+    const selectedText = (name: string) => {
+      const select = form.elements.namedItem(name);
+      return select instanceof HTMLSelectElement ? select.selectedOptions[0].textContent?.trim() ?? '' : '';
+    };
+    const update = () => {
+      const fields = new FormData(form);
+      const get = (name: string) => String(fields.get(name) ?? '').trim();
+      const lines = [
+        'Hello Petal & Pine,', '',
+        'I’d love to talk about some flowers.', '',
+        `Occasion: ${selectedText('occasion')}`,
+        `Palette: ${selectedText('palette')}`,
+        `Size: ${selectedText('size')}`,
+      ];
+      if (get('date')) {
+        const [year, month, day] = get('date').split('-').map(Number);
+        const date = new Date(year, month - 1, day);
+        lines.push(`Preferred date: ${new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }).format(date)} (subject to availability)`);
+      }
+      if (get('budget')) lines.push(`Approximate budget: ${get('budget')}`);
+      if (get('notes')) lines.push('', 'A few details:', get('notes'));
+      lines.push('', 'Thank you!', get('name'));
+      output.value = lines.filter((line, index) => line !== '' || index < lines.length - 1).join('\n');
+      if (status) status.textContent = '';
+    };
+    form.addEventListener('input', update);
+    form.addEventListener('change', update);
+    form.addEventListener('submit', (event) => event.preventDefault());
+    form.addEventListener('reset', () => setTimeout(update, 0));
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(output.value);
+        if (status) status.textContent = 'Your flower brief is copied. Nothing has been sent.';
+      } catch {
+        output.focus(); output.select();
+        if (status) status.textContent = 'Your message is selected. Use your browser’s copy command.';
+      }
+    });
+    update();
+  }
+</script>

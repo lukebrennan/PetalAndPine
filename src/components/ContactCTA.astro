@@ -1,0 +1,9 @@
+---
+import Icon from './Icon.astro';
+import { path } from '../lib/paths';
+interface Props { title?: string; text?: string }
+const { title = 'A little thought goes a long way.', text = 'Pick a palette, think about the occasion, and tell us a little about the person. Your flower brief starts here.' } = Astro.props;
+---
+<section class="contact-cta wrap section-space">
+  <Icon kind="flower" class="contact-star" /><p class="eyebrow">Let’s make something lovely</p><h2>{title}</h2><p>{text}</p><a class="button" href={`${path('contact')}#flower-brief`}>Create your flower brief <Icon /></a>
+</section>
