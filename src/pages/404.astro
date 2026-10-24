@@ -3,4 +3,4 @@ import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
 import { path } from '../lib/paths';
 ---
-<Layout title="Page not found — Petal & Pine" noindex={true}><section class="wrap section-space not-found"><Icon kind="flower" class="contact-star" /><p class="eyebrow">A little wrong turning</p><h1>Nothing growing<br /><em>here just yet.</em></h1><p class="page-lead">This page may have moved, or the address may be a little off. Let’s get you back to something lovely.</p><a class="button" href={path()}>Back to Petal & Pine <Icon /></a><a class="text-link" href={path('flowers')}>Explore our flowers</a></section></Layout>
+<Layout title="Page not found — Petal & Pine" noindex={true}><section class="wrap not-found stack"><h1>That page isn’t here</h1><p class="lead">It may have moved, or the link may be wrong. Everything on the site is one click from the home page.</p><div class="actions"><a class="button" href={path()}>Home <Icon /></a><a class="link" href={path('flowers')}>Bouquets</a></div></section></Layout>

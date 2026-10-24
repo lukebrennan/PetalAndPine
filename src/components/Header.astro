@@ -1,24 +1,23 @@
 ---
 import Icon from './Icon.astro';
-import { navigation } from '../data/site';
+import { navigation, site } from '../data/site';
 import { path } from '../lib/paths';
 const active = (slug: string) => Astro.url.pathname.startsWith(path(slug));
+const briefHref = `${path('contact')}#flower-brief`;
 ---
-<div class="announcement">Flowers with feeling, a little closer to home <Icon kind="flower" /></div>
 <div class="header-shell">
   <header class="site-header wrap">
-    <a class="wordmark" href={path()} aria-label="Petal and Pine home">
-      <svg class="brand-sprig" viewBox="0 0 48 56" aria-hidden="true"><path d="M25 52V22M25 39C12 39 8 30 8 24c10 0 17 6 17 15Zm0-8c11 0 16-8 16-15-9 0-16 6-16 15Z" fill="none" stroke="currentColor" stroke-width="1.4" /><path d="M25 22c-7-4-11-8-11-13 5-1 9 1 11 5 2-4 6-6 11-5 0 5-4 9-11 13Z" fill="currentColor" /></svg>
-      <span>petal <i>&</i> pine<small>flowers with feeling</small></span>
-    </a>
-    <nav class="desktop-nav" aria-label="Main navigation">
-      {navigation.map((item) => <a class:list={[item.slug === 'contact' && 'nav-contact']} href={path(item.slug)} aria-current={active(item.slug) ? 'page' : undefined}>{item.label}{item.slug === 'contact' && <Icon />}</a>)}
+    <a class="wordmark" href={path()} aria-label="Petal and Pine, home">{site.name}<small>{site.tagline}</small></a>
+    <nav class="desktop-nav" aria-label="Main">
+      {navigation.map((item) => <a href={path(item.slug)} aria-current={active(item.slug) ? 'page' : undefined}>{item.label}</a>)}
     </nav>
+    <a class="button header-cta" href={briefHref}>Plan a bouquet</a>
     <details class="mobile-nav">
       <summary>Menu <Icon kind="menu" /></summary>
-      <nav class="mobile-panel" aria-label="Mobile navigation">
-        <a href={path()} aria-current={Astro.url.pathname === path() ? 'page' : undefined}>Home</a>
-        {navigation.map((item) => <a href={path(item.slug)} aria-current={active(item.slug) ? 'page' : undefined}>{item.label}<Icon /></a>)}
+      <nav class="mobile-panel" aria-label="Main">
+        <a href={path()} aria-current={Astro.url.pathname === path() ? 'page' : undefined}>Home <Icon /></a>
+        {navigation.map((item) => <a href={path(item.slug)} aria-current={active(item.slug) ? 'page' : undefined}>{item.label} <Icon /></a>)}
+        <a class="button" href={briefHref}>Plan a bouquet</a>
       </nav>
     </details>
   </header>

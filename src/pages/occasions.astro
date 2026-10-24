@@ -8,14 +8,24 @@ import occasionImage from '../assets/occasion.png';
 import { occasions, collections } from '../data/site';
 import { path } from '../lib/paths';
 ---
-<Layout title="Flowers for every occasion — Petal & Pine" description="Birthday colour, thoughtful thank-yous, just-because flowers, and wedding inspiration. Find a palette and a message for your moment." image={occasionImage}>
-  <section class="inner-hero wrap"><div><p class="eyebrow">For the moments that matter</p><h1>Say a little.<br />Mean <em>a lot.</em></h1><p class="page-lead">Some flowers celebrate. Some comfort. Some simply say, “I was thinking of you.” Find a little inspiration for the feeling behind your gesture.</p><a class="text-link" href="#occasion-ideas">Find your occasion</a></div><div class="inner-hero-photo"><Image src={occasionImage} alt="Garden-inspired flower arrangements on a relaxed celebration table with cream linen and glassware." widths={[640, 960, 1440]} sizes="(max-width: 760px) 92vw, 45vw" format="webp" loading="eager" fetchpriority="high" /></div></section>
-  <div class="wrap occasion-jump-links">{occasions.map((occasion) => <a href={`#${occasion.value}`}>{occasion.label}</a>)}</div>
-  <div id="occasion-ideas" class="wrap occasion-stories">
+<Layout title="Occasions — Petal & Pine, Chester" description="Which bouquet for a birthday, a thank-you, a new home, sympathy or a wedding, with a card message you can copy." image={occasionImage}>
+  <section class="inner-hero"><div class="hero-copy"><h1>Occasions</h1><p class="lead">What we usually suggest, and a line for the card if you are stuck for words.</p></div><div class="hero-photo"><Image src={occasionImage} alt="Loose garden-style arrangements along a long table laid with linen and glassware." widths={[640, 960, 1440]} sizes="(max-width: 900px) 100vw, 50vw" format="webp" loading="eager" fetchpriority="high" /></div></section>
+  <nav class="wrap jump-links" aria-label="Occasions on this page">{occasions.map((occasion) => <a href={`#${occasion.value}`}>{occasion.title}</a>)}</nav>
+  <div class="wrap">
     {occasions.map((occasion, index) => {
       const collection = collections.find((item) => item.slug === occasion.collection)!;
-      return <section id={occasion.value} class:list={['occasion-story', index % 2 === 1 && 'reverse']}><div class="occasion-story-image"><Image src={occasion.value === 'wedding' ? occasionImage : collection.image} alt={occasion.value === 'wedding' ? 'Soft floral centrepieces on an intimate celebration table.' : collection.alt} widths={[480, 720, 960]} sizes="(max-width: 760px) 92vw, 42vw" format="webp" quality={80} loading="lazy" /></div><div><p class="eyebrow">0{index + 1} · {occasion.label}</p><h2>{occasion.title}</h2><p class="body-copy">{occasion.description}</p><p class="palette-tip">{occasion.idea}</p><div class="message-card"><p class="eyebrow">A few words for the card</p><blockquote>{occasion.message}</blockquote><CopyText text={occasion.message} /></div><div class="occasion-actions"><a class="text-link" href={path(`flowers/${collection.slug}`)}>Explore {collection.name.toLowerCase()} <Icon /></a><a class="text-link" href={`${path('contact')}?occasion=${occasion.value}#flower-brief`}>Plan this gesture <Icon /></a></div></div></section>;
+      const wedding = occasion.value === 'wedding';
+      return <section id={occasion.value} class:list={['occasion', index % 2 === 1 && 'reverse']} aria-labelledby={`${occasion.value}-title`}>
+        <div class="photo"><Image src={wedding ? occasionImage : collection.image} alt={wedding ? 'Table arrangements for a wedding.' : collection.alt} widths={[480, 720, 960]} sizes="(max-width: 900px) 100vw, 42vw" format="webp" quality={80} loading="lazy" /></div>
+        <div>
+          <h2 id={`${occasion.value}-title`}>{occasion.title}</h2>
+          <p style="margin-top: 16px">{occasion.description}</p>
+          <p class="suggest">{occasion.idea}</p>
+          <div class="card-message"><p class="small">For the card</p><blockquote>{occasion.message}</blockquote><CopyText text={occasion.message} /></div>
+          <div class="actions" style="margin-top: 22px"><a class="button" href={`${path('contact')}?occasion=${occasion.value}&palette=${collection.slug}#flower-brief`}>Plan this one <Icon /></a><a class="link" href={path(`flowers/${collection.slug}`)}>See {collection.name}</a></div>
+        </div>
+      </section>;
     })}
   </div>
-  <ContactCTA title="Make the moment feel like them." text="A favourite colour, a meaningful date, a few words from the heart. Those little details are a lovely place to begin." />
+  <ContactCTA title="Something else?" text="Anniversaries, apologies, leaving dos, the dog’s birthday. Tell us what it is and we will suggest a palette." />
 </Layout>

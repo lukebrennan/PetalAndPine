@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-24T00:00:00Z",
+  "title": "Design System: Petal & Pine",
+  "extensions": {
+    "colorMeta": {
+      "terracotta": { "role": "primary", "displayName": "Terracotta", "canonical": "oklch(60.3% 0.138 41)", "tonalRamp": ["oklch(25% 0.138 41)", "oklch(35% 0.138 41)", "oklch(45% 0.138 41)", "oklch(55% 0.138 41)", "oklch(65% 0.138 41)", "oklch(75% 0.138 41)", "oklch(85% 0.138 41)", "oklch(95% 0.138 41)"] },
+      "terracotta-2": { "role": "primary", "displayName": "Terracotta Deep", "canonical": "oklch(53.2% 0.128 40)", "tonalRamp": ["oklch(25% 0.128 40)", "oklch(35% 0.128 40)", "oklch(45% 0.128 40)", "oklch(55% 0.128 40)", "oklch(65% 0.128 40)", "oklch(75% 0.128 40)", "oklch(85% 0.128 40)", "oklch(95% 0.128 40)"] },
+      "green": { "role": "secondary", "displayName": "Bottle Green", "canonical": "oklch(34.2% 0.061 163)", "tonalRamp": ["oklch(15% 0.061 163)", "oklch(25% 0.061 163)", "oklch(35% 0.061 163)", "oklch(45% 0.061 163)", "oklch(55% 0.061 163)", "oklch(65% 0.061 163)", "oklch(75% 0.061 163)", "oklch(85% 0.061 163)"] },
+      "green-2": { "role": "secondary", "displayName": "Bottle Green Deep", "canonical": "oklch(29.7% 0.051 164)", "tonalRamp": ["oklch(15% 0.051 164)", "oklch(25% 0.051 164)", "oklch(35% 0.051 164)", "oklch(45% 0.051 164)", "oklch(55% 0.051 164)", "oklch(65% 0.051 164)", "oklch(75% 0.051 164)", "oklch(85% 0.051 164)"] },
+      "slate": { "role": "tertiary", "displayName": "Slate", "canonical": "oklch(37.5% 0.014 244)", "tonalRamp": ["oklch(15% 0.014 244)", "oklch(25% 0.014 244)", "oklch(35% 0.014 244)", "oklch(45% 0.014 244)", "oklch(55% 0.014 244)", "oklch(65% 0.014 244)", "oklch(75% 0.014 244)", "oklch(85% 0.014 244)"] },
+      "slate-2": { "role": "tertiary", "displayName": "Slate Deep", "canonical": "oklch(32.9% 0.012 243)", "tonalRamp": ["oklch(15% 0.012 243)", "oklch(25% 0.012 243)", "oklch(35% 0.012 243)", "oklch(45% 0.012 243)", "oklch(55% 0.012 243)", "oklch(65% 0.012 243)", "oklch(75% 0.012 243)", "oklch(85% 0.012 243)"] },
+      "lime": { "role": "neutral", "displayName": "Limewash", "canonical": "oklch(96.2% 0.007 116)", "tonalRamp": ["oklch(25% 0.007 116)", "oklch(35% 0.007 116)", "oklch(45% 0.007 116)", "oklch(55% 0.007 116)", "oklch(65% 0.007 116)", "oklch(75% 0.007 116)", "oklch(85% 0.007 116)", "oklch(95% 0.007 116)"] },
+      "lime-2": { "role": "neutral", "displayName": "Limewash Shade", "canonical": "oklch(93.6% 0.011 118)", "tonalRamp": ["oklch(25% 0.011 118)", "oklch(35% 0.011 118)", "oklch(45% 0.011 118)", "oklch(55% 0.011 118)", "oklch(65% 0.011 118)", "oklch(75% 0.011 118)", "oklch(85% 0.011 118)", "oklch(95% 0.011 118)"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "oklch(27.0% 0.023 163)", "tonalRamp": ["oklch(15% 0.023 163)", "oklch(25% 0.023 163)", "oklch(35% 0.023 163)", "oklch(45% 0.023 163)", "oklch(55% 0.023 163)", "oklch(65% 0.023 163)", "oklch(75% 0.023 163)", "oklch(85% 0.023 163)"] },
+      "muted": { "role": "neutral", "displayName": "Muted", "canonical": "oklch(47.8% 0.017 155)", "tonalRamp": ["oklch(15% 0.017 155)", "oklch(25% 0.017 155)", "oklch(35% 0.017 155)", "oklch(45% 0.017 155)", "oklch(55% 0.017 155)", "oklch(65% 0.017 155)", "oklch(75% 0.017 155)", "oklch(85% 0.017 155)"] },
+      "chalk": { "role": "neutral", "displayName": "Chalk", "canonical": "oklch(95.9% 0.010 87)", "tonalRamp": ["oklch(25% 0.010 87)", "oklch(35% 0.010 87)", "oklch(45% 0.010 87)", "oklch(55% 0.010 87)", "oklch(65% 0.010 87)", "oklch(75% 0.010 87)", "oklch(85% 0.010 87)", "oklch(95% 0.010 87)"] },
+      "chalk-dim": { "role": "neutral", "displayName": "Chalk Dim", "canonical": "oklch(85.4% 0.018 140)", "tonalRamp": ["oklch(25% 0.018 140)", "oklch(35% 0.018 140)", "oklch(45% 0.018 140)", "oklch(55% 0.018 140)", "oklch(65% 0.018 140)", "oklch(75% 0.018 140)", "oklch(85% 0.018 140)", "oklch(95% 0.018 140)"] },
+      "moss": { "role": "neutral", "displayName": "Moss", "canonical": "oklch(81.3% 0.032 136)", "tonalRamp": ["oklch(25% 0.032 136)", "oklch(35% 0.032 136)", "oklch(45% 0.032 136)", "oklch(55% 0.032 136)", "oklch(65% 0.032 136)", "oklch(75% 0.032 136)", "oklch(85% 0.032 136)", "oklch(95% 0.032 136)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Home hero h1 (the company name) only, clamp(56px, 6.6vw, 96px); inner heroes use clamp(44px, 5.5vw, 84px)." },
+      "headline": { "displayName": "Headline", "purpose": "h2 section heads; the CTA h2 is clamp(32px, 4vw, 56px); the palette band caption h2 is clamp(24px, 2.2vw, 30px)." },
+      "title": { "displayName": "Title", "purpose": "h3 in panes, rows and care steps; plant-label names are clamp(24px, 2.2vw, 32px)." },
+      "lead": { "displayName": "Lead", "purpose": "Standfirst under a hero or page head, max 52ch." },
+      "body": { "displayName": "Body", "purpose": "Paragraphs at 17px/1.55, max 62ch; 16px below 640px." },
+      "label": { "displayName": "Label", "purpose": "Buttons, text links, filter chips, field labels, footer headings. Karla 500, mixed case, no tracking." },
+      "small": { "displayName": "Small", "purpose": "Breadcrumbs, statuses, hints; footer small print at 13px." }
+    },
+    "shadows": [
+      { "name": "floating-panel", "value": "0 18px 40px -16px rgba(28, 42, 35, .35)", "purpose": "Only the open mobile navigation panel; the single floating layer in the system." },
+      { "name": "swatch-rim", "value": "inset 0 0 0 1px rgba(28, 42, 35, .18)", "purpose": "Colour swatch circles on bouquet detail pages." }
+    ],
+    "motion": [
+      { "name": "state-step", "value": ".18s ease-out", "purpose": "Background, border and underline colour steps on buttons, links, labels and rows." },
+      { "name": "chip-step", "value": ".15s ease-out", "purpose": "Filter chip background and colour." },
+      { "name": "disclosure-turn", "value": ".2s ease-out", "purpose": "FAQ plus icon rotating 45deg when open." },
+      { "name": "photo-settle", "value": ".5s cubic-bezier(.2, .7, .2, 1)", "purpose": "Collection photo scale(1.03) on hover; removed under prefers-reduced-motion." },
+      { "name": "label-rise", "value": "translateY(-2px) .18s ease-out", "purpose": "Linked plant label on hover; removed under prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "photo-grids-to-two", "value": "1100px" },
+      { "name": "stack", "value": "900px" },
+      { "name": "single", "value": "640px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The only action colour. Terracotta fill, chalk text, square, with an inline arrow. Used unchanged on limewash and on green.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Plan a bouquet <svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 19 19 5M6 5h13v13\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 14px; min-height: 50px; padding: 12px 22px; border: 1px solid var(--terracotta, #c4603a); background: var(--terracotta, #c4603a); color: var(--chalk, #f4f1ea); font-family: Karla, 'Helvetica Neue', Arial, sans-serif; font-weight: 500; font-size: 16px; line-height: 1.2; text-decoration: none; border-radius: 0; transition: background .18s ease-out, border-color .18s ease-out; } .ds-btn-primary:hover { background: var(--terracotta-2, #a84e2c); border-color: var(--terracotta-2, #a84e2c); } .ds-btn-primary:focus-visible { outline: 2px solid var(--terracotta, #c4603a); outline-offset: 3px; } .ds-icon { display: inline-block; width: 16px; height: 16px; flex-shrink: 0; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Transparent with a currentColor hairline; secondary action beside the primary.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">See the three palettes</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 14px; min-height: 50px; padding: 12px 22px; border: 1px solid currentColor; background: transparent; color: var(--ink, #1c2a23); font-family: Karla, 'Helvetica Neue', Arial, sans-serif; font-weight: 500; font-size: 16px; line-height: 1.2; text-decoration: none; border-radius: 0; transition: background .18s ease-out; } .ds-btn-ghost:hover { background: rgba(28, 42, 35, .06); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--terracotta, #c4603a); outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Karla 500 with a moss underline that turns currentColor on hover; arrow icon trails.",
+      "html": "<a class=\"ds-link\" href=\"#\">All occasions, with card messages <svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 19 19 5M6 5h13v13\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></a>",
+      "css": ".ds-link { display: inline-flex; align-items: center; gap: 10px; padding-block: 2px; color: var(--ink, #1c2a23); font-family: Karla, 'Helvetica Neue', Arial, sans-serif; font-weight: 500; font-size: 17px; text-decoration: underline; text-decoration-color: var(--moss, #b9c7b3); text-underline-offset: 6px; text-decoration-thickness: 1px; transition: text-decoration-color .18s ease-out; } .ds-link:hover { text-decoration-color: currentColor; } .ds-link:focus-visible { outline: 2px solid var(--terracotta, #c4603a); outline-offset: 3px; } .ds-icon { display: inline-block; width: 16px; height: 16px; flex-shrink: 0; }"
+    },
+    {
+      "name": "Plant Label",
+      "kind": "card",
+      "refersTo": "plant-label",
+      "description": "Flat slate rectangle carrying a bouquet name, from-price and one line. No ornament. Steps to slate-deep and rises 2px when linked.",
+      "html": "<a class=\"ds-label\" href=\"#\"><span class=\"ds-label-name\">Soft &amp; romantic</span><span class=\"ds-label-price\">from <strong>£30</strong></span><p>Blush, cream and dusty pink with silvery foliage.</p><span class=\"ds-label-go\">See the palette <svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 19 19 5M6 5h13v13\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></span></a>",
+      "css": ".ds-label { position: relative; display: flex; flex-direction: column; gap: 10px; max-width: 320px; padding: 24px 26px; background: var(--slate, #3b4248); color: var(--chalk, #f4f1ea); text-decoration: none; font-family: Karla, 'Helvetica Neue', Arial, sans-serif; border-radius: 0; transition: background .18s ease-out, transform .18s ease-out; } .ds-label-name { font-family: 'Young Serif', 'Iowan Old Style', Georgia, serif; font-weight: 400; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.05; } .ds-label-price { font-size: 15px; color: var(--chalk-dim, #c9d2c7); } .ds-label-price strong { font-family: 'Young Serif', 'Iowan Old Style', Georgia, serif; font-weight: 400; font-size: 24px; color: var(--chalk, #f4f1ea); margin-left: 6px; } .ds-label p { margin: 0; color: var(--chalk-dim, #c9d2c7); font-size: 15px; line-height: 1.55; } .ds-label-go { margin-top: auto; padding-top: 10px; display: inline-flex; align-items: center; gap: 10px; font-weight: 500; font-size: 15px; } .ds-label:hover { background: var(--slate-2, #30363b); transform: translateY(-2px); } .ds-label:focus-visible { outline: 2px solid var(--terracotta, #c4603a); outline-offset: 3px; } .ds-icon { display: inline-block; width: 16px; height: 16px; flex-shrink: 0; } @media (max-width: 1100px) { .ds-label { padding: 20px 18px; } }"
+    },
+    {
+      "name": "Glazing Grid",
+      "kind": "card",
+      "refersTo": "pane",
+      "description": "The structural device: 1px gaps on a moss background with limewash panes, closed by a 1px moss border. No cards, no shadows.",
+      "html": "<div class=\"ds-panes\"><div class=\"ds-pane\"><h3>Pick a palette</h3><p>Blush &amp; cream, Peach &amp; coral or White &amp; green.</p></div><div class=\"ds-pane\"><h3>Choose a size</h3><p>A posy from £30, a bouquet from £45, a large bouquet from £60.</p></div><div class=\"ds-pane\"><h3>Send us the brief</h3><p>The contact page writes the message for you.</p></div></div>",
+      "css": ".ds-panes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--moss, #b9c7b3); border-block: 1px solid var(--moss, #b9c7b3); } .ds-pane { background: var(--lime, #f2f3ee); color: var(--ink, #1c2a23); min-width: 0; padding: clamp(24px, 3vw, 40px); font-family: Karla, 'Helvetica Neue', Arial, sans-serif; } .ds-pane h3 { margin: 0 0 12px; font-family: 'Young Serif', 'Iowan Old Style', Georgia, serif; font-weight: 400; font-size: clamp(22px, 2vw, 27px); line-height: 1.05; } .ds-pane p { margin: 0; font-size: 17px; line-height: 1.55; } @media (max-width: 900px) { .ds-panes { grid-template-columns: 1fr; } }"
+    },
+    {
+      "name": "Interlock Band",
+      "kind": "custom",
+      "refersTo": "plant-label",
+      "description": "Green palette band with top padding 0 whose label grid is pulled up 56px (32px below 900px) to straddle the preceding section's moss rule; caption follows beneath.",
+      "html": "<div class=\"ds-interlock\"><div class=\"ds-interlock-hero\"></div><section class=\"ds-band\"><div class=\"ds-labels\"><a class=\"ds-label\" href=\"#\"><span class=\"ds-label-name\">Soft &amp; romantic</span><span class=\"ds-label-price\">from <strong>£30</strong></span></a><a class=\"ds-label\" href=\"#\"><span class=\"ds-label-name\">Bright &amp; joyful</span><span class=\"ds-label-price\">from <strong>£30</strong></span></a><a class=\"ds-label\" href=\"#\"><span class=\"ds-label-name\">Wild &amp; natural</span><span class=\"ds-label-price\">from <strong>£35</strong></span></a></div><div class=\"ds-band-head\"><h2>Three palettes, three sizes</h2><p>Posy, bouquet or large bouquet. Prices are for a posy.</p></div></section></div>",
+      "css": ".ds-interlock { font-family: Karla, 'Helvetica Neue', Arial, sans-serif; } .ds-interlock-hero { height: 120px; background: var(--lime, #f2f3ee); border-bottom: 1px solid var(--moss, #b9c7b3); } .ds-band { padding: 0 clamp(16px, 4vw, 48px) clamp(32px, 4vw, 56px); background: var(--green, #14422f); color: var(--chalk, #f4f1ea); } .ds-labels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: -56px; } .ds-label { display: flex; flex-direction: column; gap: 10px; padding: 24px 26px; background: var(--slate, #3b4248); color: var(--chalk, #f4f1ea); text-decoration: none; border-radius: 0; transition: background .18s ease-out, transform .18s ease-out; } .ds-label-name { font-family: 'Young Serif', 'Iowan Old Style', Georgia, serif; font-weight: 400; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.05; } .ds-label-price { font-size: 15px; color: var(--chalk-dim, #c9d2c7); } .ds-label-price strong { font-family: 'Young Serif', 'Iowan Old Style', Georgia, serif; font-weight: 400; font-size: 24px; color: var(--chalk, #f4f1ea); margin-left: 6px; } .ds-label:hover { background: var(--slate-2, #30363b); transform: translateY(-2px); } .ds-label:focus-visible { outline: 2px solid var(--terracotta, #c4603a); outline-offset: 3px; } .ds-band-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 32px; margin: 28px 0 0; } .ds-band-head h2 { margin: 0; font-family: 'Young Serif', 'Iowan Old Style', Georgia, serif; font-weight: 400; font-size: clamp(24px, 2.2vw, 30px); line-height: 1.05; } .ds-band-head p { margin: 0; color: var(--chalk-dim, #c9d2c7); font-size: 17px; } @media (max-width: 900px) { .ds-labels { grid-template-columns: 1fr; margin-top: -32px; } }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "filter-chip",
+      "description": "Square slate-outlined toggle; fills slate with chalk text when pressed.",
+      "html": "<div class=\"ds-filters\"><button class=\"ds-filter\" type=\"button\" aria-pressed=\"true\">All</button><button class=\"ds-filter\" type=\"button\" aria-pressed=\"false\">Soft &amp; romantic</button><button class=\"ds-filter\" type=\"button\" aria-pressed=\"false\">Bright &amp; joyful</button></div>",
+      "css": ".ds-filters { display: flex; flex-wrap: wrap; gap: 10px; } .ds-filter { min-height: 42px; padding: 8px 16px; border: 1px solid var(--slate, #3b4248); background: transparent; color: var(--slate, #3b4248); font-family: Karla, 'Helvetica Neue', Arial, sans-serif; font-weight: 500; font-size: 15px; border-radius: 0; cursor: pointer; transition: background .15s ease-out, color .15s ease-out; } .ds-filter:hover { background: var(--lime-2, #e9ebe3); } .ds-filter[aria-pressed=\"true\"] { background: var(--slate, #3b4248); color: var(--chalk, #f4f1ea); } .ds-filter:focus-visible { outline: 2px solid var(--terracotta, #c4603a); outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "text-field",
+      "description": "Chalk field set into the green contact section; square, 48px, terracotta caret and focus ring at 0 offset.",
+      "html": "<div class=\"ds-green-room\"><div class=\"ds-field\"><label for=\"ds-name\">Your name</label><input id=\"ds-name\" type=\"text\" placeholder=\"\" /></div><div class=\"ds-field\"><label for=\"ds-notes\">Anything else <span>(colours, who it’s for, a card message)</span></label><textarea id=\"ds-notes\" rows=\"3\"></textarea></div></div>",
+      "css": ".ds-green-room { display: grid; gap: 20px; padding: 32px; background: var(--green, #14422f); color: var(--chalk, #f4f1ea); font-family: Karla, 'Helvetica Neue', Arial, sans-serif; } .ds-field label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 15px; } .ds-field label span { font-weight: 400; color: var(--chalk-dim, #c9d2c7); } .ds-field input, .ds-field textarea { display: block; width: 100%; min-height: 48px; padding: 10px 12px; background: var(--chalk, #f4f1ea); border: 1px solid var(--chalk, #f4f1ea); border-radius: 0; color: var(--ink, #1c2a23); font: inherit; font-size: 16px; caret-color: var(--terracotta, #c4603a); } .ds-field textarea { resize: vertical; line-height: 1.5; } .ds-field input::placeholder, .ds-field textarea::placeholder { color: #6b746d; } .ds-field input:focus-visible, .ds-field textarea:focus-visible { outline: 2px solid var(--terracotta, #c4603a); outline-offset: 0; }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "label",
+      "description": "Sticky limewash shell with a moss rule; Young Serif wordmark, centred Karla links with moss hover and terracotta current-page underline, terracotta button right.",
+      "html": "<div class=\"ds-header-shell\"><header class=\"ds-header\"><a class=\"ds-wordmark\" href=\"#\">Petal &amp; Pine<small>Florist in Chester</small></a><nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Flowers</a><a href=\"#\">Occasions</a><a href=\"#\">Our story</a><a href=\"#\">Flower care</a><a href=\"#\">Contact</a></nav><a class=\"ds-btn-primary\" href=\"#\">Plan a bouquet</a></header></div>",
+      "css": ".ds-header-shell { background: var(--lime, #f2f3ee); border-bottom: 1px solid var(--moss, #b9c7b3); color: var(--ink, #1c2a23); font-family: Karla, 'Helvetica Neue', Arial, sans-serif; } .ds-header { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 32px; min-height: 76px; padding-inline: clamp(16px, 4vw, 48px); } .ds-wordmark { font-family: 'Young Serif', 'Iowan Old Style', Georgia, serif; font-size: 26px; line-height: 1; letter-spacing: -0.01em; white-space: nowrap; color: inherit; text-decoration: none; } .ds-wordmark small { display: block; margin-top: 4px; font-family: Karla, 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: .02em; color: var(--muted, #566059); } .ds-nav { display: flex; justify-content: center; gap: clamp(18px, 2.4vw, 36px); font-size: 16px; } .ds-nav a { color: inherit; text-decoration: none; padding-block: 6px; border-bottom: 1px solid transparent; } .ds-nav a:hover { border-bottom-color: var(--moss, #b9c7b3); } .ds-nav a[aria-current=\"page\"] { border-bottom-color: var(--terracotta, #c4603a); } .ds-nav a:focus-visible { outline: 2px solid var(--terracotta, #c4603a); outline-offset: 3px; } .ds-btn-primary { display: inline-flex; align-items: center; min-height: 50px; padding: 12px 22px; border: 1px solid var(--terracotta, #c4603a); background: var(--terracotta, #c4603a); color: var(--chalk, #f4f1ea); font-weight: 500; font-size: 16px; line-height: 1.2; text-decoration: none; border-radius: 0; transition: background .18s ease-out, border-color .18s ease-out; } .ds-btn-primary:hover { background: var(--terracotta-2, #a84e2c); border-color: var(--terracotta-2, #a84e2c); }"
+    },
+    {
+      "name": "FAQ Row",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Native details with moss rules; Karla 500 question, terracotta plus that turns 45deg when open, muted answer.",
+      "html": "<div class=\"ds-faq\"><details open><summary>Can I choose the exact flowers?<svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 12h16M12 4v16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></summary><p>You choose the palette and size; we pick the best stems that week and tell you what is in it.</p></details><details><summary>Do you deliver?<svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 12h16M12 4v16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></summary><p>Yes, from £5 within Chester.</p></details></div>",
+      "css": ".ds-faq { border-top: 1px solid var(--moss, #b9c7b3); color: var(--ink, #1c2a23); font-family: Karla, 'Helvetica Neue', Arial, sans-serif; } .ds-faq details { border-bottom: 1px solid var(--moss, #b9c7b3); } .ds-faq summary { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 20px 0; cursor: pointer; list-style: none; font-weight: 500; font-size: 18px; line-height: 1.4; } .ds-faq summary::-webkit-details-marker { display: none; } .ds-faq summary .ds-icon { color: var(--terracotta, #c4603a); transition: transform .2s ease-out; } .ds-faq details[open] summary .ds-icon { transform: rotate(45deg); } .ds-faq summary:focus-visible { outline: 2px solid var(--terracotta, #c4603a); outline-offset: 3px; } .ds-faq details p { margin: 0; padding-bottom: 22px; color: var(--muted, #566059); font-size: 17px; line-height: 1.55; max-width: 62ch; } .ds-icon { display: inline-block; width: 16px; height: 16px; flex-shrink: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Walled-Garden Glasshouse",
+    "overview": "The site is a Victorian florist's glasshouse: whitewashed limewash glass, a grid of thin moss-green glazing bars, bottle-green paint owning whole bands of the page, and every bouquet carrying a flat slate plant label with its name and price lettered in chalk. Content sits inside the panes; the structure is the one-pixel bars between them, never a card, a shadow or a rounded corner. The only warm thing in the building is the terracotta pot, so terracotta is the one colour allowed to say \"do this\" or \"you are here\".\n\nDensity is calm and even. A single 1320px container, one 17px body size, a display serif that is allowed to get large (up to 96px on the home hero) and otherwise stays quiet. Photography bleeds to the pane edge and is framed by the bars, not by its own border. There is no second typographic voice: no italics, no small caps, no uppercase tracking, no eyebrow above a heading, no numerals as decoration. This is a confirmed rejection of the cream-ground, italic-serif, eyebrow-and-card florist template.",
+    "keyCharacteristics": [
+      "Glazing grid: 1px gaps on a moss background are the only structural lines",
+      "Limewash ground; bottle green owns whole sections (the palette band, the footer)",
+      "Flat slate plant labels carry names and prices, and interlock 56px up into the hero's bottom edge",
+      "Terracotta is the only action colour; it also marks the focus ring, the current page and the open FAQ",
+      "Young Serif 400 for display, Karla 400/500 for everything else, both self-hosted",
+      "Square corners everywhere; the only circles are the colour swatches on bouquet pages",
+      "Flat: no shadows at rest; the mobile menu panel is the single floating layer"
+    ],
+    "rules": [
+      { "name": "The One Pot Rule", "body": "Terracotta is the only action colour. If an element is terracotta it is either the primary action or a state signal (focus, current page, open disclosure). No terracotta headings, backgrounds, numerals or decoration.", "section": "colors" },
+      { "name": "The Paint Owns the Room Rule", "body": "Bottle green is applied to whole sections, never to a card, chip or badge inside a limewash section. Inside a green room, type is chalk and chalk-dim; the primary button stays terracotta.", "section": "colors" },
+      { "name": "The Moss Line Rule", "body": "Every divider, border and grid line is 1px moss. No other border colour appears on limewash except the ink outline of the mobile menu and the slate outline of the filter chip.", "section": "colors" },
+      { "name": "The One Weight Rule", "body": "Young Serif is always 400. Karla is 400 for reading and 500 for anything you can press or that names a field. Nothing is bold.", "section": "typography" },
+      { "name": "The Plain Heading Rule", "body": "A heading is the heading. No eyebrow, kicker, overline, number or italic fragment above or inside it. Headings are followed by a paragraph or by the grid. Ordered steps are hairline rows with a title and text, not counters.", "section": "typography" },
+      { "name": "The No Lift Rule", "body": "Surfaces do not cast shadows. If something must float (a menu over the page) it may; nothing else does. Hover is a colour step or a 2px rise, never a shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do build structure with the glazing grid: gap: 1px on a moss background with limewash children, closed by a 1px moss border.",
+      "Do give every bouquet, size or message a flat slate plant label: slate fill, chalk type, 24px 26px, nothing else.",
+      "Do reserve terracotta (#c4603a) for the primary button, focus ring and state markers; step to #a84e2c on hover.",
+      "Do apply bottle green to the whole section and switch type to chalk / chalk-dim inside it; keep the button terracotta.",
+      "Do interlock the palette band under the hero by pulling the labels up 56px (32px below 900px) with the band's top padding at 0.",
+      "Do set headings in Young Serif 400 with tight tracking (-0.025em to -0.015em) and let the home h1 reach 96px.",
+      "Do separate stacked limewash sections with a single 1px moss .rule.",
+      "Do use clamp() for every section pad, gutter and heading size; the only fixed type sizes are 17px body, 16px controls, 15px labels, 14px small.",
+      "Do use native details for disclosure (FAQ, mobile menu) and the 16px stroke-1.5 inline SVG arrow for every link affordance."
+    ],
+    "donts": [
+      "Don't round any corner; border-radius is 0 except the colour swatches.",
+      "Don't use shadows for depth; only the floating mobile panel casts one.",
+      "Don't add dots, holes, rivets or any ornament to the plant label; it is a plain slate block.",
+      "Don't use italics, bold (700), uppercase, letter-spaced labels or small caps; only Young Serif 400 and Karla 400/500 are bundled and font-synthesis is off.",
+      "Don't put an eyebrow, kicker, overline or number above or beside a heading, and don't number list steps with counters.",
+      "Don't paint cards, chips or badges green or terracotta inside a limewash section; paint is for rooms, terracotta is for the action.",
+      "Don't introduce a border colour other than moss on limewash, apart from the ink mobile-menu outline and the slate filter chip.",
+      "Don't load fonts, icons or images from an external service; everything is bundled."
+    ]
+  }
+}

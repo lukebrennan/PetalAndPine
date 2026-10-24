@@ -8,11 +8,36 @@ import { path, price } from '../../lib/paths';
 export function getStaticPaths() { return collections.map((collection) => ({ params: { slug: collection.slug }, props: { collection } })); }
 interface Props { collection: Collection }
 const { collection } = Astro.props;
+const briefHref = (size?: string) => `${path('contact')}?palette=${collection.slug}${size ? `&size=${size}` : ''}#flower-brief`;
 ---
-<Layout title={`${collection.name} flowers — Petal & Pine`} description={`${collection.description} Explore the palette, example sizes and prices, and prepare a flower brief.`} image={collection.image}>
-  <div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href={path()}>Home</a><span aria-hidden="true">/</span><a href={path('flowers')}>Our flowers</a><span aria-hidden="true">/</span><span aria-current="page">{collection.name}</span></nav></div>
-  <section class="product-hero wrap"><div class="product-photo"><Image src={collection.image} alt={collection.alt} widths={[640, 960, 1440]} sizes="(max-width: 760px) 92vw, 48vw" format="webp" quality={82} loading="eager" fetchpriority="high" /></div><div class="product-copy"><p class="eyebrow">A Petal & Pine colour story</p><h1>{collection.name}</h1><p class="page-lead">{collection.description}</p><p class="product-price">From {price(collection.price)} <span>illustrative price</span></p><p class="body-copy">{collection.story}</p><div class="swatches" aria-label="Palette colours">{collection.colours.map((colour) => <div><span style={`--swatch: ${colour.hex}`} aria-hidden="true"></span><small>{colour.name}</small></div>)}</div><a class="button" href={`${path('contact')}?palette=${collection.slug}#flower-brief`}>Plan this bouquet <Icon /></a><p class="section-note">A style inspiration, not a fixed stem list or live stock item.</p></div></section>
-  <section class="soft-band"><div class="wrap section-space"><div class="section-heading"><div><p class="eyebrow">Little, classic, or a little more</p><h2>Choose the size<br />of the <em>gesture.</em></h2></div><p>Example bouquet sizes and prices.<br />No order or payment is taken on this preview.</p></div><div class="size-grid">{sizes.map((size) => <a class="size-card" href={`${path('contact')}?palette=${collection.slug}&size=${size.value}#flower-brief`}><h3>{size.label}</h3><p>{size.description}</p><strong>{price(collection.price + size.extra)}</strong><span>Create a brief <Icon /></span></a>)}</div></div></section>
-  <section class="wrap section-space product-notes"><article><p class="eyebrow">The feeling</p><h2>A little of<br /><em>this mood.</em></h2><p>{collection.feeling}</p><p>{collection.note}</p></article><article><h3>Lovely for</h3><ul class="plain-list">{collection.moments.map((moment) => <li><Icon kind="flower" />{moment}</li>)}</ul><h3>Garden-inspired stems</h3><p>{collection.stems}</p><a class="text-link" href={path('flower-care')}>Help your flowers feel at home <Icon /></a></article></section>
-  <section class="wrap section-space related-section"><div class="section-heading"><div><p class="eyebrow">A different kind of lovely</p><h2>More colour <em>stories.</em></h2></div><a class="text-link" href={path('flowers')}>All our flowers <Icon /></a></div><div class="collection-grid two-cards">{collections.filter((other) => other.slug !== collection.slug).map((other, index) => <CollectionCard collection={other} index={index} />)}</div></section>
+<Layout title={`${collection.name} bouquets — Petal & Pine, Chester`} description={`${collection.description} Posies from ${price(collection.price)}, bouquets from ${price(collection.price + 15)}. Plan one online.`} image={collection.image}>
+  <div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href={path()}>Home</a><span aria-hidden="true">/</span><a href={path('flowers')}>Bouquets</a><span aria-hidden="true">/</span><span aria-current="page">{collection.name}</span></nav></div>
+  <section class="wrap product">
+    <div class="photo"><Image src={collection.image} alt={collection.alt} widths={[640, 960, 1440]} sizes="(max-width: 900px) 100vw, 52vw" format="webp" quality={82} loading="eager" fetchpriority="high" /></div>
+    <div class="product-copy stack">
+      <h1>{collection.name}</h1>
+      <p class="lead">{collection.story}</p>
+      <p class="price">From {price(collection.price)} <span>for a posy</span></p>
+      <div class="swatches" aria-label="Colours">{collection.colours.map((colour) => <div><span style={`--swatch: ${colour.hex}`} aria-hidden="true"></span>{colour.name}</div>)}</div>
+      <div class="actions"><a class="button" href={briefHref()}>Plan this bouquet <Icon /></a></div>
+      <p class="small muted">{collection.note}</p>
+    </div>
+  </section>
+
+  <section class="green band" aria-labelledby="sizes-title">
+    <div class="wrap">
+      <div class="band-head"><h2 id="sizes-title">Sizes</h2><p>Pick one and the brief is filled in for you.</p></div>
+      <div class="size-grid">{sizes.map((size) => <a class="label" href={briefHref(size.value)}><span class="label-name">{size.label}</span><span class="label-price"><strong>{price(collection.price + size.extra)}</strong></span><p>{size.description}</p><span class="label-go">Choose {size.label.toLowerCase()} <Icon /></span></a>)}</div>
+    </div>
+  </section>
+
+  <section class="wrap section notes">
+    <div class="stack"><h2>What goes in it</h2><p>{collection.stems}</p><p>{collection.feeling}</p></div>
+    <div class="stack"><h2>Good for</h2><ul class="plain-list">{collection.moments.map((moment) => <li>{moment}</li>)}</ul><p><a class="link" href={path('flower-care')}>How to make them last <Icon /></a></p></div>
+  </section>
+
+  <section class="wrap section rule" aria-labelledby="others-title">
+    <div class="band-head"><h2 id="others-title">The other two</h2><a class="link" href={path('flowers')}>All bouquets <Icon /></a></div>
+    <div class="collection-grid two-cards">{collections.filter((other) => other.slug !== collection.slug).map((other) => <CollectionCard collection={other} />)}</div>
+  </section>
 </Layout>

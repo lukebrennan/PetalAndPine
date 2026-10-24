@@ -5,13 +5,34 @@ import Icon from '../components/Icon.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 import studio from '../assets/studio.png';
 import wild from '../assets/wild.png';
-import { shop } from '../data/site';
+import { shop, site } from '../data/site';
 import { path } from '../lib/paths';
 ---
-<Layout title="Our story — Petal & Pine" description="Meet the idea behind Petal & Pine: garden-inspired flowers, thoughtful gestures, and a fictional Chester shop with a warm, natural spirit." image={studio}>
-  <section class="inner-hero wrap"><div><p class="eyebrow">The heart of Petal & Pine</p><h1>A little wild.<br />Always <em>thoughtful.</em></h1><p class="page-lead">A flower shop with a soft spot for the everyday. Inspired by the garden, by beautiful little imperfections, and by the people behind each gesture.</p></div><div class="inner-hero-photo"><Image src={studio} alt="Illustrative florist studio scene with loose flowers, linen ribbon, wrapping paper, and floral tools." widths={[640, 960, 1440]} sizes="(max-width: 760px) 92vw, 45vw" format="webp" loading="eager" fetchpriority="high" /></div></section>
-  <section class="wrap section-space story-introduction"><p class="eyebrow">Flowers with feeling</p><h2>Not perfectly formal.<br /><em>Beautifully personal.</em></h2><div class="story-columns"><p>Some of the most meaningful gestures are the smallest. A bunch on the kitchen table. A thank-you left at the door. A colour that reminds you of someone. That is the feeling at the heart of Petal & Pine.</p><p>Our style makes room for texture, movement, and a touch of the unexpected. Soft petals sit beside wild greenery. A gentle palette can be just as expressive as a bright one. There is no single right way to make something lovely.</p></div></section>
-  <section class="soft-band"><div class="wrap section-space"><div class="section-heading"><div><p class="eyebrow">Three things we come back to</p><h2>Rooted in <em>little details.</em></h2></div></div><div class="three-up"><article><Icon kind="flower" class="value-icon" /><h3>The person first</h3><p>A favourite shade, a shared memory, a small detail that says “this made me think of you”. Start there, and the gesture becomes yours.</p></article><article><Icon kind="flower" class="value-icon" /><h3>A garden state of mind</h3><p>Loose shapes, layered foliage, and flowers that have room to breathe. We take inspiration from the natural way things grow together.</p></article><article><Icon kind="flower" class="value-icon" /><h3>Everyday beauty</h3><p>You do not have to save flowers for a big day. A few stems can bring a little colour and care to the ordinary parts of life.</p></article></div></div></section>
-  <section class="wrap section-space split-section"><div class="editorial-photo arch"><Image src={wild} alt="Loosely gathered white flowers and greenery in a simple ceramic vase." widths={[640, 960]} sizes="(max-width: 760px) 92vw, 45vw" format="webp" loading="lazy" /></div><div><p class="eyebrow">A Chester-inspired little shop</p><h2>A place for a pause.<br /><em>A palette. A little chat.</em></h2><p class="body-copy">Picture flowers by the window, a little greenery on the worktable, and time to think about who the bouquet is for. That is the spirit of our sample Chester shop.</p><p class="body-copy">Our fictional address is {shop.address.join(', ')}. We are using example details while the site takes shape; the contact page brings them together in one place.</p><a class="text-link" href={path('contact')}>Explore the Chester shop preview <Icon /></a></div></section>
+<Layout title="About — Petal & Pine, Chester" description="Petal & Pine is a small independent florist in Chester making loose, garden-style bouquets by hand." image={studio}>
+  <section class="inner-hero"><div class="hero-copy"><h1>About the shop</h1><p class="lead">{site.story}</p></div><div class="hero-photo"><Image src={studio} alt="The workbench in the shop: jugs of roses, ranunculus and foliage, ribbon, paper and shears." widths={[640, 960, 1440]} sizes="(max-width: 900px) 100vw, 50vw" format="webp" loading="eager" fetchpriority="high" /></div></section>
+
+  <section class="wrap section" aria-labelledby="how-title">
+    <h2 id="how-title">How we work</h2>
+    <div class="columns prose">
+      <div><p>We buy from the Chester wholesale market twice a week and from a couple of growers in Cheshire and North Wales in the summer. What we have changes with the season, which is why we sell by palette rather than by a fixed list of flowers.</p><p>Everything is made up on the day it goes out. We do not keep made-up bouquets in a chiller waiting for someone to buy them.</p></div>
+      <div><p>We wrap in paper and tie with ribbon. No cellophane, no floral foam, no plastic sleeves. If you want a vase or a jug with it, say so in the brief and we will find one that suits.</p><p>If what you have asked for is not in season or not good that week, we will say so and suggest something that is.</p></div>
+    </div>
+  </section>
+
+  <section class="green band" aria-labelledby="believe-title">
+    <div class="wrap">
+      <h2 id="believe-title" style="margin-bottom: 24px">Three things we stick to</h2>
+      <div class="labels">
+        <div class="label"><span class="label-name">The person first</span><p>Tell us who it is for and what they are like. That tells us more than a flower name does.</p></div>
+        <div class="label"><span class="label-name">Loose, not stiff</span><p>Stems with room to move, foliage mixed through, nothing wired or forced into a dome.</p></div>
+        <div class="label"><span class="label-name">Honest about the season</span><p>Peonies in May, dahlias in September. We will not fly in something tired to hit a request.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section split" aria-labelledby="visit-title">
+    <div class="photo"><Image src={wild} alt="White cosmos and garden roses in a green vase on the shop counter." widths={[640, 960]} sizes="(max-width: 900px) 100vw, 50vw" format="webp" loading="lazy" /></div>
+    <div class="stack"><h2 id="visit-title">Come in</h2><p>We are at {shop.address.join(', ')}, open {shop.hours[0].days} {shop.hours[0].time} and {shop.hours[1].days} {shop.hours[1].time}. There are usually buckets outside if you just want a bunch of something.</p><div class="actions"><a class="link" href={path('contact')}>Opening hours and directions <Icon /></a></div></div>
+  </section>
   <ContactCTA />
 </Layout>

@@ -3,12 +3,12 @@ import { Image } from 'astro:assets';
 import Icon from './Icon.astro';
 import type { Collection } from '../data/site';
 import { path, price } from '../lib/paths';
-interface Props { collection: Collection; index?: number }
-const { collection, index = 0 } = Astro.props;
+interface Props { collection: Collection }
+const { collection } = Astro.props;
 ---
-<article class={`collection-card ${collection.palette}`} data-palette={collection.palette}>
+<article class="collection" data-palette={collection.palette}>
   <a class="collection-link" href={path(`flowers/${collection.slug}`)}>
-    <div class="collection-photo"><Image src={collection.image} alt={collection.alt} widths={[400, 640, 900]} sizes="(max-width: 700px) 92vw, (max-width: 1050px) 44vw, 30vw" format="webp" quality={80} loading="lazy" /><span class="photo-number">0{index + 1}</span><span class="photo-action">Explore this palette <Icon /></span></div>
-    <div class="collection-copy"><div class="collection-title"><h3>{collection.name}</h3><Icon /></div><p>{collection.description}</p><p class="collection-price">From {price(collection.price)} <span>example price</span></p></div>
+    <div class="collection-photo"><Image src={collection.image} alt={collection.alt} widths={[400, 640, 900]} sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw" format="webp" quality={80} loading="lazy" /></div>
+    <div class="label"><span class="label-name">{collection.name}</span><span class="label-price">posy from <strong>{price(collection.price)}</strong></span><p>{collection.description}</p><span class="label-go">See this palette <Icon /></span></div>
   </a>
 </article>
