@@ -30,18 +30,17 @@ The configured public address is `https://lukebrennan.github.io/PetalAndPine/`. 
 
 ## Making changes
 
-- `src/data/site.ts`: shop name and tagline, placeholder contact details and hours, the three palettes with prices, sizes, occasions with card messages, and FAQs. Most copy changes happen here.
-- `src/pages/`: home, bouquets (with palette filter), three palette detail pages, occasions, about, flower care, contact, and the 404 page.
-- `src/components/`: header and footer, palette cards, FAQ accordion, copyable card messages, the contact call-to-action band, and the brief builder.
+- `src/data/site.ts`: shop profile, sample contact details/hours, palettes, example prices, occasions, and FAQs.
+- `src/pages/`: home, flower collection, three bouquet detail pages, occasions, story, flower care, contact, and custom 404 page.
+- `src/components/`: shared header/footer, collection cards, FAQ accordions, copyable gift messages, and flower-brief builder.
 - `src/lib/paths.ts`: links that preserve the GitHub Pages project path.
-- `src/styles/global.css`: the design tokens (limewash ground, bottle green, terracotta, slate), type, and layout. Young Serif is the display face and Karla the text face; both are bundled from `@fontsource`.
-- `src/assets/`: seven generated floral photographs, converted to responsive WebP images and social previews during the build.
+- `src/styles/global.css`: colours, typography, and responsive layout.
+- `src/assets/`: seven generated decorative floral photographs, optimized into responsive WebP images and social preview images during the build.
 - `astro.config.mjs`: public site URL and project base path. Update these if the repository name or domain changes.
-- `PRODUCT.md` and `DESIGN.md`: the product brief and the design system, kept for future design work.
 
-The shop is a demonstration. The address, phone number (a fictional 01632 number), email (reserved `.example` domain), hours and prices are placeholders; a single notice in the footer and on the contact page says so. Replace them in `src/data/site.ts` before using the site for real enquiries.
+The user requested a fictional Chester shop profile for this preview. The address, hours, services, and prices are explicitly marked as examples. The phone uses a fictional number and the email uses the reserved `.example` domain; they are not active contact channels and have no call/email links. Replace these details with verified information before opening the site for real enquiries.
 
-There is no checkout, booking or payment flow. The brief builder on the contact page writes an enquiry message in the browser and copies it to the clipboard on request; it does not submit anything. Palette, size and occasion links prefill it with query parameters. The occasions page lets visitors copy suggested card messages. Filters and FAQs work without any external service; the FAQ and mobile navigation use native `details` elements.
+The flower cards are palette inspiration, not live inventory. There is no checkout, booking, or payment flow. The contact-page brief builder creates a message in the browser and copies it only when requested; it does not submit data or send email. Collection/occasion links prefill that brief. The occasions page also lets visitors copy suggested card messages. Palette filters and FAQs work without any external service; FAQ and mobile-navigation controls use native HTML details elements.
 
 Each page has its own metadata and social image. `sitemap.xml` lists the nine main public pages with the correct project base path. The custom 404 page is excluded from indexing.
 

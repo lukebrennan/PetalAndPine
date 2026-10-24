@@ -1,9 +1,11 @@
 ---
-import '@fontsource/young-serif/latin-400.css';
-import '@fontsource/karla/latin-400.css';
-import '@fontsource/karla/latin-500.css';
+import '@fontsource/cormorant-garamond/latin-400.css';
+import '@fontsource/cormorant-garamond/latin-500.css';
+import '@fontsource/cormorant-garamond/latin-500-italic.css';
+import '@fontsource/dm-sans/latin-400.css';
+import '@fontsource/dm-sans/latin-500.css';
 import '../styles/global.css';
-import { site, shop } from '../data/site';
+import { site } from '../data/site';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import heroImage from '../assets/bouquet.png';
@@ -18,26 +20,19 @@ interface Props {
   noindex?: boolean;
 }
 
-const { title = `${site.name} — ${site.tagline}`, description = site.description, image = heroImage, noindex = false } = Astro.props;
+const { title = `${site.name} — Flowers with feeling`, description = site.description, image = heroImage, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const socialImage = await getImage({ src: image, width: 1200, height: 630, format: 'jpg', quality: 80 });
-const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'Florist',
-  name: site.name,
-  url: new URL(base, Astro.site).href,
-  description: site.description,
-  address: { '@type': 'PostalAddress', streetAddress: shop.address[0], addressLocality: shop.town, addressCountry: 'GB' },
-};
+const schema = { '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: new URL(base, Astro.site).href, description: site.description };
 ---
 
 <!doctype html>
-<html lang="en-GB">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#14422f" />
+    <meta name="theme-color" content="#234337" />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
     <link rel="sitemap" type="application/xml" href={`${base}sitemap.xml`} />
     <link rel="canonical" href={canonical} />

@@ -5,27 +5,19 @@ import CollectionCard from '../../components/CollectionCard.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 import FAQ from '../../components/FAQ.astro';
 import wild from '../../assets/wild.png';
-import { collections, sizes, flowerFAQs } from '../../data/site';
-import { price } from '../../lib/paths';
+import { collections, flowerFAQs } from '../../data/site';
+import { path } from '../../lib/paths';
 ---
-<Layout title="Bouquets — Petal & Pine, Chester" description="Three palettes of loose, garden-style bouquets from Petal & Pine in Chester: Blush & cream, Peach & coral, and White & green. Posies from £30." image={wild}>
-  <section class="inner-hero"><div class="hero-copy"><h1>Bouquets</h1><p class="lead">Three palettes, each in three sizes. Pick the colours you like; we pick the stems that are good that week.</p><div class="actions"><a class="link" href="#palettes">The palettes</a><a class="link" href="#sizes">Sizes and prices</a></div></div><div class="hero-photo"><Image src={wild} alt="White cosmos, cream roses and loose greenery in a green ceramic vase." widths={[640, 960, 1440]} sizes="(max-width: 900px) 100vw, 50vw" format="webp" loading="eager" fetchpriority="high" /></div></section>
-
-  <section id="palettes" class="wrap section" aria-labelledby="palettes-title">
-    <h2 id="palettes-title" style="margin-bottom: 24px">The palettes</h2>
-    <div class="filters" role="group" aria-label="Show a palette"><button type="button" class="filter" data-filter="all" aria-pressed="true">All three</button>{collections.map((collection) => <button type="button" class="filter" data-filter={collection.palette} aria-pressed="false">{collection.name}</button>)}</div>
-    <p class="filter-status" role="status" aria-live="polite">Showing all three palettes.</p>
-    <div class="collection-grid" data-collection-grid>{collections.map((collection) => <CollectionCard collection={collection} />)}</div>
+<Layout title="Our flowers — Petal & Pine" description="Explore soft, joyful, and natural flower palettes, bouquet sizes, and example prices in the Petal & Pine Chester shop preview." image={wild}>
+  <section class="inner-hero wrap"><div><p class="eyebrow">Our flowers</p><h1>Find your kind<br />of <em>lovely.</em></h1><p class="page-lead">A soft blush, a joyful burst of colour, or something quietly wild. Start with the feeling, and let a flower palette tell the rest of the story.</p><a class="text-link" href="#collection">Explore the collection</a></div><div class="inner-hero-photo"><Image src={wild} alt="Airy white flowers and garden greenery in a soft green ceramic vase." widths={[640, 960]} sizes="(max-width: 760px) 92vw, 45vw" format="webp" loading="eager" fetchpriority="high" /></div></section>
+  <section id="collection" class="wrap section-space">
+    <div class="section-heading"><div><p class="eyebrow">The colour stories</p><h2>Three moods.<br /><em>So many little moments.</em></h2></div><p>These photographs are palette inspiration.<br />The prices and sizes are examples for this preview.</p></div>
+    <div class="collection-filters" role="group" aria-label="Filter flower palettes"><button type="button" class="filter-button" data-filter="all" aria-pressed="true">All palettes</button><button type="button" class="filter-button" data-filter="rose" aria-pressed="false">Soft & romantic</button><button type="button" class="filter-button" data-filter="peach" aria-pressed="false">Bright & joyful</button><button type="button" class="filter-button" data-filter="sage" aria-pressed="false">Wild & natural</button></div>
+    <p class="filter-status" role="status" aria-live="polite">Showing all 3 palettes.</p>
+    <div class="collection-grid" data-collection-grid>{collections.map((collection, index) => <CollectionCard collection={collection} index={index} />)}</div>
   </section>
-
-  <section id="sizes" class="green band" aria-labelledby="sizes-title">
-    <div class="wrap">
-      <div class="band-head"><h2 id="sizes-title">Sizes and prices</h2><p>Starting prices. Blush & cream and White & green cost a few pounds more because of the roses.</p></div>
-      <div class="size-grid">{sizes.map((size) => <div class="label"><span class="label-name">{size.label}</span><span class="label-price">from <strong>{price(30 + size.extra)}</strong> to {price(35 + size.extra)}</span><p>{size.description}</p></div>)}</div>
-    </div>
-  </section>
-
-  <section class="wrap section faq-section" aria-labelledby="faq-title"><div class="stack"><h2 id="faq-title">Before you order</h2><p>Short answers to the things people ask most.</p></div><FAQ items={flowerFAQs} /></section>
+  <section class="soft-band"><div class="wrap section-space"><div class="section-heading"><div><p class="eyebrow">A little help choosing</p><h2>Begin with the <em>person.</em></h2></div><a class="text-link" href={path('occasions')}>Explore occasions</a></div><div class="three-up"><article><span class="step-number">01</span><h3>Their kind of colour</h3><p>Think about the shades they wear, their home, or a colour they always notice. A favourite is a lovely place to begin.</p></article><article><span class="step-number">02</span><h3>The feeling of the gesture</h3><p>Gentle and reassuring? Bright and celebratory? Loose and natural? The mood matters as much as the flowers.</p></article><article><span class="step-number">03</span><h3>A few thoughtful details</h3><p>A preferred date, a simple budget, and a personal message help bring everything together. Add them to your flower brief.</p></article></div></div></section>
+  <section class="wrap section-space faq-section"><div><p class="eyebrow">Choosing made simple</p><h2>A little<br /><em>flower knowledge.</em></h2></div><FAQ items={flowerFAQs} /></section>
   <ContactCTA />
 </Layout>
 <script>

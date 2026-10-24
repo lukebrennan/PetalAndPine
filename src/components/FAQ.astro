@@ -4,4 +4,4 @@ import type { FAQ } from '../data/site';
 interface Props { items: FAQ[] }
 const { items } = Astro.props;
 ---
-<div class="faq">{items.map((item) => <details><summary>{item.question}<Icon kind="plus" /></summary><p>{item.answer}</p></details>)}</div>
+<div class="faq-list">{items.map((item) => <details class="faq-item"><summary>{item.question}<Icon kind="plus" /></summary><div class="faq-answer"><p>{item.answer}</p></div></details>)}</div>
