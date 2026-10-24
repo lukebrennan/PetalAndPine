@@ -45,6 +45,7 @@ h1, h2, h3, p { margin-top: 0; }
 h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
 h1 { margin-bottom: 23px; font-size: clamp(50px, 5.05vw, 75px); letter-spacing: -.044em; line-height: 1.03; }
 h1 em, h2 em { font-weight: 500; }
+.hero-tagline { margin: -8px 0 22px; font-family: var(--serif); font-size: clamp(24px, 2.2vw, 30px); line-height: 1.2; color: #4a5a4f; }
 .hero-description { max-width: 365px; margin-bottom: 31px; color: var(--muted); font-size: 13px; line-height: 1.9; }
 .button { display: inline-flex; justify-content: center; align-items: center; gap: 33px; padding: 17px 25px; border: 1px solid var(--forest); background: var(--forest); color: #fffdf8; font-size: 12px; transition: background .2s, transform .2s; }
 .button:hover { background: #355a47; transform: translateY(-2px); }

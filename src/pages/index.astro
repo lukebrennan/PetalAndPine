@@ -13,33 +13,33 @@ import { path } from '../lib/paths';
 ---
 <Layout>
   <section class="hero wrap" aria-labelledby="hero-title">
-    <div class="hero-copy"><p class="eyebrow"><span class="little-line" aria-hidden="true"></span>{site.eyebrow}</p><h1 id="hero-title">{site.headline.firstLine}<br />{site.headline.secondLine} <em>{site.headline.emphasis}</em></h1><p class="hero-description">{site.introduction}</p><div class="hero-actions"><a class="button" href={path('flowers')}>Find your flowers <Icon /></a><a class="text-link" href={path('occasions')}>Find a little inspiration</a></div><p class="hero-note">A thoughtful gesture. A beautiful feeling.</p></div>
-    <div class="hero-art"><div class="photo-frame"><Image src={bouquet} alt="Blush, cream, and peach flowers gathered with fresh eucalyptus in ivory wrapping." widths={[640, 960, 1440]} sizes="(max-width: 760px) 92vw, 52vw" format="webp" quality={82} loading="eager" fetchpriority="high" /></div><div class="flower-seal" aria-hidden="true"><span>ROOTED IN</span><Icon kind="flower" class="seal-flower" /><span>A LITTLE LOVE</span></div><p class="photo-caption">soft petals. wild hearts.</p></div>
+    <div class="hero-copy"><p class="eyebrow"><span class="little-line" aria-hidden="true"></span>{site.eyebrow}</p><h1 id="hero-title">{site.name}</h1><p class="hero-tagline">{site.tagline}</p><p class="hero-description">{site.introduction}</p><div class="hero-actions"><a class="button" href={path('flowers')}>See our flowers <Icon /></a><a class="text-link" href={path('occasions')}>Browse by occasion</a></div></div>
+    <div class="hero-art"><div class="photo-frame"><Image src={bouquet} alt="Blush, cream, and peach flowers gathered with fresh eucalyptus in ivory wrapping." widths={[640, 960, 1440]} sizes="(max-width: 760px) 92vw, 52vw" format="webp" quality={82} loading="eager" fetchpriority="high" /></div><div class="flower-seal" aria-hidden="true"><span>HAND-TIED</span><Icon kind="flower" class="seal-flower" /><span>IN CHESTER</span></div><p class="photo-caption">Blush & cream, our most-asked-for palette.</p></div>
   </section>
-  <div class="values-strip"><span>Garden-inspired beauty</span><Icon kind="flower" /><span>Thoughtful little gestures</span><Icon kind="flower" /><span>A little everyday joy</span></div>
+  <div class="values-strip"><span>Garden-style bouquets</span><Icon kind="flower" /><span>Hand-tied to order</span><Icon kind="flower" /><span>Delivery around Chester</span></div>
 
   <section id="flowers" class="wrap section-space">
-    <div class="section-heading"><div><p class="eyebrow">Find your kind of lovely</p><h2>A mood for every <em>moment.</em></h2></div><a class="text-link" href={path('flowers')}>Explore our flowers <Icon /></a></div>
+    <div class="section-heading"><div><p class="eyebrow">Three palettes</p><h2>Our flowers</h2></div><a class="text-link" href={path('flowers')}>See all three <Icon /></a></div>
     <div class="collection-grid">{collections.map((collection, index) => <CollectionCard collection={collection} index={index} />)}</div>
-    <p class="section-note">Bouquet inspiration and example prices. Individual stems and colours change with the season.</p>
+    <p class="section-note">Prices are for a small bouquet. Stems change with the season; the colours stay the same.</p>
   </section>
 
   <section class="occasions-band">
-    <div class="wrap section-space"><div class="section-heading"><div><p class="eyebrow">Say it with flowers</p><h2>The little things.<br /><em>The big feelings.</em></h2></div><p>Not every gesture needs a grand occasion.<br />Sometimes “I’m thinking of you” is enough.</p></div>
-      <div class="occasion-grid">{occasions.slice(0, 4).map((occasion, index) => <a class="occasion-tile" href={`${path('occasions')}#${occasion.value}`}><span class="tile-number">0{index + 1}</span><h3>{occasion.title}</h3><p>{occasion.description}</p><span class="tile-link">A little inspiration <Icon /></span></a>)}</div>
+    <div class="wrap section-space"><div class="section-heading"><div><p class="eyebrow">Occasions</p><h2>Flowers for the occasion</h2></div><p>Birthdays, thank-yous, new homes,<br />or no reason at all.</p></div>
+      <div class="occasion-grid">{occasions.slice(0, 4).map((occasion, index) => <a class="occasion-tile" href={`${path('occasions')}#${occasion.value}`}><span class="tile-number">0{index + 1}</span><h3>{occasion.title}</h3><p>{occasion.description}</p><span class="tile-link">See ideas <Icon /></span></a>)}</div>
     </div>
   </section>
 
   <section id="our-story" class="story-section"><div class="wrap story-inner">
-    <div class="editorial-photo arch"><Image src={studio} alt="An illustrative florist worktable with flowers, ribbon, wrapping paper, and shears in warm daylight." widths={[640, 960]} sizes="(max-width: 760px) 92vw, 45vw" format="webp" quality={80} loading="lazy" /></div>
-    <div class="story-copy"><p class="eyebrow">The heart of Petal & Pine</p><h2>More than flowers.<br /><em>A little connection.</em></h2><p>{site.story}</p><p>Our Chester-inspired shop is a place to imagine slower moments, thoughtful gestures, and flowers that feel like someone you know.</p><a class="text-link" href={path('our-story')}>Get to know Petal & Pine <Icon /></a></div>
+    <div class="editorial-photo arch"><Image src={studio} alt="The workbench in the shop: jugs of flowers, ribbon, wrapping paper and shears." widths={[640, 960]} sizes="(max-width: 760px) 92vw, 45vw" format="webp" quality={80} loading="lazy" /></div>
+    <div class="story-copy"><p class="eyebrow">Our story</p><h2>About the shop</h2><p>{site.story}</p><p>We are a small shop in Chester. Everything is made up by hand on the day, wrapped in paper and tied with ribbon.</p><a class="text-link" href={path('our-story')}>More about us <Icon /></a></div>
   </div></section>
 
   <section class="wrap section-space split-section care-teaser">
-    <div><p class="eyebrow">Keep the lovely a little longer</p><h2>A few small habits.<br /><em>A happier vase.</em></h2><p class="body-copy">Fresh water, a clean vase, and a cool spot make a beautiful place to start. Our practical care guide helps you enjoy every stem.</p><ol class="mini-steps"><li><span>01</span>Trim the stems with clean shears.</li><li><span>02</span>Keep leaves above the waterline.</li><li><span>03</span>Refresh the water and find a cool spot.</li></ol><a class="text-link" href={path('flower-care')}>Read the flower-care guide <Icon /></a></div>
+    <div><p class="eyebrow">Flower care</p><h2>Looking after your flowers</h2><p class="body-copy">Fresh water, a clean vase and a cool spot will get you most of the way. The care guide covers the rest.</p><ol class="mini-steps"><li><span>01</span>Trim the stems with clean shears.</li><li><span>02</span>Keep leaves above the waterline.</li><li><span>03</span>Refresh the water and find a cool spot.</li></ol><a class="text-link" href={path('flower-care')}>Read the flower-care guide <Icon /></a></div>
     <div class="editorial-photo"><Image src={care} alt="Pink and cream flowers in a glass vase beside floral shears and linen." widths={[640, 960]} sizes="(max-width: 760px) 92vw, 45vw" format="webp" quality={80} loading="lazy" /></div>
   </section>
 
-  <section class="faq-section wrap section-space"><div><p class="eyebrow">A few little answers</p><h2>Good things<br /><em>to know.</em></h2><p class="body-copy">Choosing flowers should feel lovely, not complicated. Start with a colour, a feeling, or someone special.</p></div><FAQ items={flowerFAQs.slice(0, 3)} /></section>
+  <section class="faq-section wrap section-space"><div><p class="eyebrow">Questions</p><h2>Common questions</h2><p class="body-copy">If yours isn’t here, ask when you get in touch.</p></div><FAQ items={flowerFAQs.slice(0, 3)} /></section>
   <div id="contact"><ContactCTA /></div>
 </Layout>
